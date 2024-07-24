@@ -1,70 +1,93 @@
-# Getting Started with Create React App
+# React Firebase Authentication Template
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a React application template that includes simple authentication using Firebase. The template features a landing page with a navigation bar, where users can sign up, log in, and sign out. 
 
-## Available Scripts
+## Getting Started
 
-In the project directory, you can run:
+Follow these instructions to set up and run the project on your local machine.
 
-### `npm start`
+### Prerequisites
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Node.js installed on your machine
+- npm or yarn installed on your machine
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Firebase Setup
 
-### `npm test`
+1. Go to the [Firebase Console](https://console.firebase.google.com/) and create a new project.
+2. Navigate to the **Authentication** section and enable Email/Password authentication.
+3. Go to **Project Settings** and find your Firebase configuration (API key, Auth domain, etc.).
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Project Setup
 
-### `npm run build`
+1. Clone this repository:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+    ```bash
+    git clone https://github.com/Swapnil-Parashar/login-react-firebase.git
+    cd login-temp
+    ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+2. Install the dependencies:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+    ```bash
+    npm install
+    ```
 
-### `npm run eject`
+    or
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+    ```bash
+    yarn install
+    ```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+3. Create a file named `firebase.js` in the `src` directory and paste your Firebase configuration:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+    ```javascript
+    // src/firebase.js
+    import { initializeApp } from "firebase/app";
+    import { getAuth } from "firebase/auth";
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+    const firebaseConfig = {
+      apiKey: "YOUR_API_KEY",
+      authDomain: "YOUR_AUTH_DOMAIN",
+      projectId: "YOUR_PROJECT_ID",
+      storageBucket: "YOUR_STORAGE_BUCKET",
+      messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+      appId: "YOUR_APP_ID"
+    };
 
-## Learn More
+    const app = initializeApp(firebaseConfig);
+    export const auth = getAuth(app);
+    ```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+4. Run the application:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+    ```bash
+    npm start
+    ```
 
-### Code Splitting
+    or
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+    ```bash
+    yarn start
+    ```
 
-### Analyzing the Bundle Size
+## Project Structure
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- `src/`
+  - `App.js`: Main application component with routes and navigation bar.
+  - `Login.js`: Login form component.
+  - `SignUp.js`: Sign-up form component.
+  - `LandingPage.js`: Simple landing page component.
+  - `firebase.js`: Firebase configuration file (to be created).
 
-### Making a Progressive Web App
+## Usage
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+1. Open the application in your browser. The landing page will be displayed.
+2. Use the navigation bar to navigate to the Login or Sign Up page.
+3. Sign up or log in using an email and password.
+4. Once authenticated, the navigation bar will show a Sign Out button instead of the Login and Sign Up buttons.
+5. Click Sign Out to log out of the application.
 
-### Advanced Configuration
+## License
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+This project is licensed under the MIT License - see the LICENSE file for details.
 
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

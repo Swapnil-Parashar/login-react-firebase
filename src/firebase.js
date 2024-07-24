@@ -1,13 +1,14 @@
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 
+// Fill in the details from firebase config here
 const firebaseConfig = {
-  apiKey: "AIzaSyCZFhWje21smBPbu2bvZISps4ZP019XzQA",
-  authDomain: "login-e6402.firebaseapp.com",
-  projectId: "login-e6402",
-  storageBucket: "login-e6402.appspot.com",
-  messagingSenderId: "805127505775",
-  appId: "1:805127505775:web:3e3ec15318fd0876c7ca9a"
+  apiKey: "YOUR_API_KEY",
+  authDomain: "YOUR_AUTH_DOMAIN",
+  projectId: "YOUR_PROJECT_ID",
+  storageBucket: "YOUR_STORAGE_BUCKET",
+  messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+  appId: "YOUR_APP_ID"
 };
 
 // Initialize Firebase

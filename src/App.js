@@ -13,6 +13,7 @@ const App = () => {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
+      console.log(currentUser)
     });
     return () => unsubscribe();
   }, []);
@@ -51,11 +52,13 @@ const App = () => {
             </Link>
           </li>
           {user ? (
+            <>
+            <li>{user.email}</li>
             <li>
               <button onClick={handleSignOut} style={linkStyle}>
                 Sign Out
               </button>
-            </li>
+            </li></>
           ) : (
             <>
               <li>
